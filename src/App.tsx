@@ -1,7 +1,5 @@
-import { useState } from 'react'
-import { BrowserRouter as Router, Route, BrowserRouter, Routes } from 'react-router-dom';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Route, BrowserRouter, Routes } from 'react-router-dom';
+
 import './App.css'
 import HomePage from './pages/HomePage';
 import SecondPage from './pages/SecondPage';

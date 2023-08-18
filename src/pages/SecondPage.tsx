@@ -1,38 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
 import DepartmentList from './DepartmentList';
 
-interface Post {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
-  }
+// interface Post {
+//     userId: number;
+//     id: number;
+//     title: string;
+//     body: string;
+//   }
 
 export default function SecondPage() {
     // const userData: any = localStorage.getItem('userData');
     const userDataString = localStorage.getItem('userData');
     const userData = userDataString ? JSON.parse(userDataString) : null;
-    const [posts, setPosts] = useState([]);
-    const [data, setData] = useState([
-        {
-          "department": "customer_service",
-          "sub_departments": [
-            "support",
-            "customer_success"
-          ]
-        },
-        {
-          "department": "design",
-          "sub_departments": [
-            "graphic_design",
-            "product_design",
-            "web_design"
-          ]
-        }
-      ]
-    )
+    const [posts, setPosts] = useState([]);  
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 70 },
@@ -47,8 +29,7 @@ export default function SecondPage() {
         if (!userData) {
             // Redirect to the form page with a message
             navigate("/")
-            return;
-            // return <Navigate to={{ pathname: '/', state: { message: 'Please enter your details before accessing this page.' } }} />;
+            return;           
         }
 
         fetch('https://jsonplaceholder.typicode.com/posts')
