@@ -10,8 +10,7 @@ interface Post {
     body: string;
   }
 
-export default function SecondPage() {
-    // const userData: any = localStorage.getItem('userData');
+export default function SecondPage() {   
     const userDataString = localStorage.getItem('userData');
     const userData = userDataString ? JSON.parse(userDataString) : null;
     const [posts, setPosts] = useState<Post[]>([]);  
@@ -26,8 +25,7 @@ export default function SecondPage() {
     const navigate = useNavigate();   
 
     useEffect(() => {
-        if (!userData) {
-            // Redirect to the form page with a message
+        if (!userData) {        
             navigate("/")
             return;           
         }
@@ -55,9 +53,6 @@ export default function SecondPage() {
         <DepartmentList />
       </div>
         }
-
-
-
         </div>
     )
 }
