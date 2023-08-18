@@ -3,18 +3,18 @@ import { useNavigate } from 'react-router-dom';
 import { DataGrid } from '@mui/x-data-grid';
 import DepartmentList from './DepartmentList';
 
-// interface Post {
-//     userId: number;
-//     id: number;
-//     title: string;
-//     body: string;
-//   }
+interface Post {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+  }
 
 export default function SecondPage() {
     // const userData: any = localStorage.getItem('userData');
     const userDataString = localStorage.getItem('userData');
     const userData = userDataString ? JSON.parse(userDataString) : null;
-    const [posts, setPosts] = useState([]);  
+    const [posts, setPosts] = useState<Post[]>([]);  
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 70 },
